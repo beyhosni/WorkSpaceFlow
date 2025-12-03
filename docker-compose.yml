@@ -54,6 +54,7 @@ services:
     depends_on:
       - mongodb
       - kafka
+    restart: on-failure
     networks:
       - workspace-network
 
