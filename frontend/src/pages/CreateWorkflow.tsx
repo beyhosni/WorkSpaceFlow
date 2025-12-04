@@ -65,6 +65,7 @@ export default function CreateWorkflow() {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary-500"
+                        data-testid="workflow-name-input"
                         required
                     />
                 </div>
@@ -77,6 +78,7 @@ export default function CreateWorkflow() {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary-500"
+                        data-testid="workflow-description-input"
                         rows={3}
                     />
                 </div>
@@ -155,6 +157,7 @@ export default function CreateWorkflow() {
                         type="submit"
                         disabled={loading}
                         className="bg-primary-600 hover:bg-primary-700 disabled:bg-slate-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+                        data-testid="submit-workflow-button"
                     >
                         {loading ? 'Creating...' : 'Create Workflow'}
                     </button>

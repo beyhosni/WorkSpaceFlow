@@ -37,6 +37,7 @@ export default function WorkflowList() {
                 <Link
                     to="/workflows/create"
                     className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                    data-testid="create-workflow-button"
                 >
                     Create Workflow
                 </Link>
@@ -44,7 +45,7 @@ export default function WorkflowList() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {workflows.map((workflow) => (
-                    <div key={workflow.id} className="bg-slate-800 rounded-lg border border-slate-700 p-6 hover:border-primary-500 transition-colors">
+                    <div key={workflow.id} className="bg-slate-800 rounded-lg border border-slate-700 p-6 hover:border-primary-500 transition-colors" data-testid={`workflow-item-${workflow.id}`}>
                         <div className="flex items-start justify-between mb-4">
                             <h3 className="text-xl font-semibold text-white">{workflow.name}</h3>
                             {workflow.active && (

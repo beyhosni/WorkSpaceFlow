@@ -46,15 +46,15 @@ export default function Dashboard() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
                     <div className="text-gray-400 text-sm font-medium">Total Instances</div>
-                    <div className="text-3xl font-bold text-white mt-2">{instances.length}</div>
+                    <div className="text-3xl font-bold text-white mt-2" data-testid="total-instances">{instances.length}</div>
                 </div>
                 <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
                     <div className="text-gray-400 text-sm font-medium">Active Instances</div>
-                    <div className="text-3xl font-bold text-primary-400 mt-2">{activeInstances.length}</div>
+                    <div className="text-3xl font-bold text-primary-400 mt-2" data-testid="active-instances">{activeInstances.length}</div>
                 </div>
                 <div className="bg-slate-800 rounded-lg p-6 border border-slate-700">
                     <div className="text-gray-400 text-sm font-medium">Pending Tasks</div>
-                    <div className="text-3xl font-bold text-yellow-400 mt-2">{pendingTasks.length}</div>
+                    <div className="text-3xl font-bold text-yellow-400 mt-2" data-testid="pending-tasks">{pendingTasks.length}</div>
                 </div>
             </div>
 
@@ -68,15 +68,15 @@ export default function Dashboard() {
                 </div>
                 <div className="p-6">
                     {instances.slice(0, 5).map((instance) => (
-                        <div key={instance.id} className="flex items-center justify-between py-3 border-b border-slate-700 last:border-0">
+                        <div key={instance.id} className="flex items-center justify-between py-3 border-b border-slate-700 last:border-0" data-testid={`instance-item-${instance.id}`}>
                             <div>
                                 <div className="text-white font-medium">{instance.workflowName}</div>
                                 <div className="text-gray-400 text-sm">Started by {instance.startedBy}</div>
                             </div>
                             <div className="flex items-center space-x-4">
                                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${instance.status === 'COMPLETED' ? 'bg-green-500/20 text-green-400' :
-                                        instance.status === 'FAILED' ? 'bg-red-500/20 text-red-400' :
-                                            'bg-blue-500/20 text-blue-400'
+                                    instance.status === 'FAILED' ? 'bg-red-500/20 text-red-400' :
+                                        'bg-blue-500/20 text-blue-400'
                                     }`}>
                                     {instance.status}
                                 </span>
@@ -102,14 +102,14 @@ export default function Dashboard() {
                 </div>
                 <div className="p-6">
                     {pendingTasks.slice(0, 5).map((task) => (
-                        <div key={task.id} className="flex items-center justify-between py-3 border-b border-slate-700 last:border-0">
+                        <div key={task.id} className="flex items-center justify-between py-3 border-b border-slate-700 last:border-0" data-testid={`task-item-${task.id}`}>
                             <div>
                                 <div className="text-white font-medium">{task.name}</div>
                                 <div className="text-gray-400 text-sm">{task.description}</div>
                             </div>
                             <div className="flex items-center space-x-4">
                                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${task.status === 'ASSIGNED' ? 'bg-yellow-500/20 text-yellow-400' :
-                                        'bg-gray-500/20 text-gray-400'
+                                    'bg-gray-500/20 text-gray-400'
                                     }`}>
                                     {task.status}
                                 </span>
